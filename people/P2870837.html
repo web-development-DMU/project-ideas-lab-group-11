@@ -4,102 +4,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group 07</title>
+
+    <title>Ayush Shrestha Profile | Group 07</title>
+
+    <!-- Shared group stylesheet -->
     <link rel="stylesheet" href="../style-example.css">
 
+    <!-- Styles specific to this profile page -->
     <style>
         body {
             margin: 0;
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
 
-            header,
-            main {
-                font-family: monospace;
-                font-size: 1.2em;
-                padding-inline: 2rem;
-            }
+        header,
+        main,
+        footer {
+            padding-inline: 2rem;
+        }
 
+        header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+            background: #aaa;
+        }
+
+        header nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        header nav a {
+            padding: 0.25em 0.5em;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        header nav a:hover,
+        header nav a:focus-visible {
+            background-color: white;
+            color: black;
+            outline: 3px solid black;
+        }
+
+        main {
+            max-width: 75rem;
+        }
+
+        section {
+            margin-block: 2rem;
+        }
+
+        p,
+        li {
+            max-width: 70ch;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-block: 1rem;
+            border-top: 1px solid #555;
+        }
+
+        @media (max-width: 700px) {
             header {
-                display: flex;
-                align-items: end;
-                justify-content: space-between;
-                background: #aaa;
-                nav {
-                    display: flex;
-                    gap: 1rem;
-                    a {
-                        font-size: 1.4em;
-                        padding: 0.25em 0.5em;
-                        backdrop-filter: brightness(1.4);
-                        text-decoration: none;
-                        transition: backdrop-filter 200ms ease-in-out;
-                        border-top-left-radius: 1ch;
-                        border-top-right-radius: 1ch;
-                        &:hover {
-                            backdrop-filter: brightness(1.2);
-                            
-                        }
-                    }
-                }
-            }
-            main {
-                p {
-                    max-width: 70ch;
-                    line-height: 1.4;
-                }
+                align-items: flex-start;
+                flex-direction: column;
+                padding-bottom: 1rem;
             }
         }
     </style>
-
-
 </head>
 
 <body>
     <header>
         <h1>Group 07</h1>
-        <nav>
-            <a href="/">home</a>
-            <a href="/people">people</a>
-            <a href="/proposals">proposals</a>
-            <a href="/teams">teams</a>
+
+        <nav aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="index.html">People</a>
+            <a href="../proposals/index.html">Proposals</a>
+            <a href="../teams/index.html">Teams</a>
         </nav>
     </header>
 
     <main>
-        <section>
-            <p><a href="/people">back</a></p>
-            <h2>Ayush Shrestha</h2>
+        <nav aria-label="Profile navigation">
+    <a href="p2834391.html">Previous profile</a>
+    <a href="index.html">People list</a>
+    <a href="p2897131.html">Next profile</a>
+</nav>
+
+        <section aria-labelledby="profile-heading">
+            <h2 id="profile-heading">Ayush Shrestha</h2>
+
             <p>
-                 I am a Computer Science student at De Montfort University.
-               I have some experience with HTML and CSS, and I am currently
+                I am a Computer Science student at De Montfort University.
+                I have some experience with HTML and CSS, and I am currently
                 developing my web-development skills.
-                
             </p>
+
             <p>
-               I want to learn how to create accessible and responsive websites.
-             I also want to understand JavaScript, web servers, HTTP and
-             database-driven web applications.
+                I want to learn how to create accessible and responsive
+                websites. I also want to understand JavaScript, web servers,
+                HTTP and database-driven web applications.
             </p>
         </section>
-        <section>
-            <h2>Project ideas</h2>
-            <p>
-                <ul>
-    <li>
-        A music playlist manager where users can add, view,
-        update and delete songs.
-    </li>
-    <li>
-        A student task manager for recording assignments
-        and completion dates.
-    </li>
-    <li>
-        A restaurant order manager for recording menu items
-        and customer orders.
-    </li>
-</ul>
-            </p>
+
+        <section aria-labelledby="project-ideas-heading">
+            <h2 id="project-ideas-heading">Project ideas</h2>
+
+            <ul>
+                <li>
+                    A music playlist manager where users can add, view,
+                    update and delete songs.
+                </li>
+                <li>
+                    A student task manager for recording assignments
+                    and completion dates.
+                </li>
+                <li>
+                    A restaurant order manager for recording menu items
+                    and customer orders.
+                </li>
+            </ul>
         </section>
     </main>
+
+    <footer>
+        <p>Student profile: P2870837</p>
+    </footer>
 </body>
 
-</html> 
+</html>
