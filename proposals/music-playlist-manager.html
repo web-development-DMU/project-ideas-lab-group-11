@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SoundTrack Music Playlist Manager</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #fff;
+        }
+
+        header {
+            padding: 1.5rem 2rem;
+            color: white;
+            background-color: #345f73;
+        }
+
+        header h1 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        header nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        header nav a {
+            color: white;
+        }
+
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 1rem 2rem;
+        }
+
+        section {
+            margin-block: 2rem;
+        }
+
+        h2 {
+            border-bottom: 2px solid #345f73;
+            padding-bottom: 0.25rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        caption {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 0.75rem;
+            border: 1px solid #555;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e5eef2;
+        }
+
+        code {
+            padding: 0.1rem 0.25rem;
+            background-color: #eee;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #eee;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #ffbf47;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 600px) {
+            header,
+            main,
+            footer {
+                padding-inline: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>SoundTrack: Music Playlist Manager</h1>
+
+        <nav aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="../people/index.html">People</a>
+            <a href="index.html">Proposals</a>
+            <a href="../teams/index.html">Teams</a>
+        </nav>
+    </header>
+
+    <main>
+        <nav aria-label="Proposal navigation">
+            <a href="index.html">Back to proposals</a>
+        </nav>
+
+        <section aria-labelledby="description-heading">
+            <h2 id="description-heading">Application description</h2>
+
+            <p>
+                SoundTrack is a music playlist manager. It will help users
+                organise information about songs and place songs into their
+                own playlists.
+            </p>
+
+            <p>
+                Registered users will be able to create playlists, change their
+                playlist names and add or remove songs. This will make it easier
+                for them to keep different types of music organised.
+            </p>
+
+            <p>
+                Administrators will manage the song catalogue. The application
+                will use HTML pages, a JavaScript web server and an SQLite
+                database. It will not store or play actual audio files.
+            </p>
+        </section>
+
+        <section aria-labelledby="names-heading">
+            <h2 id="names-heading">Possible application names</h2>
+
+            <ul>
+                <li>SoundTrack</li>
+                <li>Playlist Manager</li>
+                <li>TrackStack</li>
+                <li>My Music List</li>
+                <li>Song Collection</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="users-heading">
+            <h2 id="users-heading">Types of users</h2>
+
+            <h3>Registered users</h3>
+
+            <p>
+                Registered users can view songs and create, rename or delete
+                their own playlists. They can also add songs to playlists and
+                remove songs that they no longer want.
+            </p>
+
+            <h3>Administrators</h3>
+
+            <p>
+                Administrators can add songs to the catalogue, update song
+                details and remove incorrect song records.
+            </p>
+        </section>
+
+        <section aria-labelledby="requirements-heading">
+            <h2 id="requirements-heading">User requirements</h2>
+
+            <ul>
+                <li>
+                    As a user, I want to create a playlist so that I can
+                    organise songs I like.
+                </li>
+
+                <li>
+                    As a user, I want to view my playlists so that I can
+                    find my saved songs.
+                </li>
+
+                <li>
+                    As a user, I want to rename a playlist so that its name
+                    describes the music inside it.
+                </li>
+
+                <li>
+                    As a user, I want to add and remove songs so that I can
+                    keep my playlists updated.
+                </li>
+
+                <li>
+                    As an administrator, I want to add and edit song details
+                    so that the catalogue is accurate.
+                </li>
+
+                <li>
+                    As an administrator, I want to remove incorrect songs
+                    from the catalogue.
+                </li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="crud-heading">
+            <h2 id="crud-heading">CRUD operations</h2>
+
+            <div class="table-container">
+                <table>
+                    <caption>
+                        Create, Read, Update and Delete operations
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Operation</th>
+                            <th scope="col">Example</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row">Create</th>
+                            <td>Create a playlist or add a new song.</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Read</th>
+                            <td>View songs, playlists and playlist details.</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Update</th>
+                            <td>Rename a playlist or edit song information.</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Delete</th>
+                            <td>Delete a playlist or remove a song.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section aria-labelledby="database-heading">
+            <h2 id="database-heading">Basic database structure</h2>
+
+            <div class="table-container">
+                <table>
+                    <caption>
+                        Proposed database tables and fields
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Table</th>
+                            <th scope="col">Purpose</th>
+                            <th scope="col">Fields</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row">Users</th>
+                            <td>Stores user and administrator accounts.</td>
+                            <td>
+                                <code>id</code>, <code>name</code>,
+                                <code>email</code>, <code>role</code>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Songs</th>
+                            <td>Stores information about each song.</td>
+                            <td>
+                                <code>id</code>, <code>title</code>,
+                                <code>artist</code>, <code>album</code>,
+                                <code>genre</code>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Playlists</th>
+                            <td>Stores playlists belonging to users.</td>
+                            <td>
+                                <code>id</code>, <code>user_id</code>,
+                                <code>name</code>, <code>description</code>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Playlist songs</th>
+                            <td>Connects songs with playlists.</td>
+                            <td>
+                                <code>playlist_id</code>,
+                                <code>song_id</code>,
+                                <code>position</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section aria-labelledby="interface-heading">
+            <h2 id="interface-heading">User-interface ideas</h2>
+
+            <ul>
+                <li>A homepage explaining what SoundTrack does.</li>
+                <li>A page displaying all available songs.</li>
+                <li>A form for adding or editing a song.</li>
+                <li>A page displaying the current user’s playlists.</li>
+                <li>A page displaying the songs inside one playlist.</li>
+                <li>A form for creating or renaming a playlist.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="links-heading">
+            <h2 id="links-heading">Useful links</h2>
+
+            <p>
+                These websites may be useful when developing the application:
+            </p>
+
+            <ul>
+                <li>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">
+                        MDN information about HTML forms
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.sqlite.org/">
+                        SQLite official website
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="challenges-heading">
+            <h2 id="challenges-heading">Biggest challenges</h2>
+
+            <ul>
+                <li>Connecting songs and playlists correctly.</li>
+                <li>Checking the information entered into forms.</li>
+                <li>Preventing users from changing another user’s playlists.</li>
+                <li>Creating clear routes between the different pages.</li>
+                <li>Making the application accessible and responsive.</li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="data-heading">
+            <h2 id="data-heading">Data requirements</h2>
+
+            <p>
+                The application will use sample song information for development
+                and testing. Each song will need a title, artist, album and
+                genre. Each playlist will need a name and a connection to the
+                user who created it.
+            </p>
+
+            <p>
+                SoundTrack will only manage written information about music.
+                It will not store, upload or stream audio files.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Proposal created by
+            <a href="../people/P2870837.html">Ayushman Shrestha</a>.
+        </p>
+    </footer>
+</body>
+
+</html>
