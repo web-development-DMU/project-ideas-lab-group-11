@@ -57,9 +57,121 @@ a {
     color: #174f78;
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
     outline: 3px solid #ffbf47;
     outline-offset: 3px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+}
+
+caption {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    border: 1px solid #555;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #dfe8ec;
+}
+
+pre {
+    padding: 1rem;
+    overflow-x: auto;
+    color: white;
+    background-color: #263238;
+    border-radius: 0.25rem;
+}
+
+code {
+    font-family: Consolas, monospace;
+}
+
+.wireframe {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #fafafa;
+    border: 2px solid #555;
+}
+
+.wireframe figcaption {
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+}
+
+.wireframe-header {
+    padding: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #345f73;
+}
+
+.wireframe-navigation {
+    padding: 0.75rem;
+    background-color: #dfe8ec;
+}
+
+.wireframe-content {
+    padding: 1rem;
+    border: 1px solid #aaa;
+    border-top: 0;
+}
+
+.prototype-form {
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+.prototype-form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.prototype-form label {
+    font-weight: bold;
+}
+
+.prototype-form input,
+.prototype-form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    font: inherit;
+    border: 1px solid #555;
+}
+
+.prototype-form button {
+    width: fit-content;
+    padding: 0.6rem 1rem;
+    font: inherit;
+    color: white;
+    cursor: pointer;
+    background-color: #345f73;
+    border: 0;
+    border-radius: 0.25rem;
+}
+
+.prototype-form button:hover {
+    background-color: #274957;
 }
 
 footer {
@@ -78,5 +190,9 @@ footer {
 
     section {
         padding: 1rem;
+    }
+
+    table {
+        min-width: 600px;
     }
 }

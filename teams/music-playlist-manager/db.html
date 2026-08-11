@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Database Plan | Music Playlist Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Music Playlist Manager</h1>
+        <p>Database documentation</p>
+
+        <nav aria-label="Project documentation">
+            <a href="index.html">Team home</a>
+            <a href="db.html">Database</a>
+            <a href="ui.html">User interface</a>
+            <a href="../../proposals/music-playlist-manager.html">
+                Project proposal
+            </a>
+            <a href="../index.html">All teams</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="database-overview"
+            aria-labelledby="database-overview-heading">
+
+            <h2 id="database-overview-heading">Database overview</h2>
+
+            <p>
+                The application will use an SQLite database. The database
+                will store users, songs, playlists and the songs added to
+                each playlist.
+            </p>
+
+            <p>
+                Four tables are planned for the first version of the
+                application.
+            </p>
+        </section>
+
+        <section id="database-tables"
+            aria-labelledby="database-tables-heading">
+
+            <h2 id="database-tables-heading">Database tables</h2>
+
+            <div class="table-container">
+                <table>
+                    <caption>
+                        Tables and fields planned for the application
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Table</th>
+                            <th scope="col">Purpose</th>
+                            <th scope="col">Fields</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row">Users</th>
+                            <td>Stores registered users and administrators.</td>
+                            <td>
+                                user_id, name, email and role
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Songs</th>
+                            <td>Stores information about each song.</td>
+                            <td>
+                                song_id, title, artist, album and genre
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Playlists</th>
+                            <td>Stores playlists created by users.</td>
+                            <td>
+                                playlist_id, user_id, name and description
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Playlist songs</th>
+                            <td>Connects songs to playlists.</td>
+                            <td>
+                                playlist_id, song_id and position
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="relationships"
+            aria-labelledby="relationships-heading">
+
+            <h2 id="relationships-heading">Table relationships</h2>
+
+            <ul>
+                <li>
+                    One user can create many playlists.
+                </li>
+
+                <li>
+                    Each playlist belongs to one user.
+                </li>
+
+                <li>
+                    One playlist can contain many songs.
+                </li>
+
+                <li>
+                    One song can appear in many playlists.
+                </li>
+
+                <li>
+                    The Playlist songs table creates the relationship
+                    between playlists and songs.
+                </li>
+            </ul>
+        </section>
+
+        <section id="keys" aria-labelledby="keys-heading">
+            <h2 id="keys-heading">Primary and foreign keys</h2>
+
+            <ul>
+                <li>
+                    <strong>Users:</strong> user_id is the primary key.
+                </li>
+
+                <li>
+                    <strong>Songs:</strong> song_id is the primary key.
+                </li>
+
+                <li>
+                    <strong>Playlists:</strong> playlist_id is the primary
+                    key and user_id is a foreign key.
+                </li>
+
+                <li>
+                    <strong>Playlist songs:</strong> playlist_id and song_id
+                    connect to the Playlists and Songs tables.
+                </li>
+            </ul>
+        </section>
+
+        <section id="queries" aria-labelledby="queries-heading">
+            <h2 id="queries-heading">Example database queries</h2>
+
+            <h3>Create a playlist</h3>
+
+            <pre><code>INSERT INTO playlists (user_id, name, description)
+VALUES (?, ?, ?);</code></pre>
+
+            <h3>View songs in a playlist</h3>
+
+            <pre><code>SELECT songs.title, songs.artist
+FROM songs
+JOIN playlist_songs
+ON songs.song_id = playlist_songs.song_id
+WHERE playlist_songs.playlist_id = ?;</code></pre>
+
+            <h3>Rename a playlist</h3>
+
+            <pre><code>UPDATE playlists
+SET name = ?
+WHERE playlist_id = ?;</code></pre>
+
+            <h3>Delete a playlist</h3>
+
+            <pre><code>DELETE FROM playlists
+WHERE playlist_id = ?;</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Music Playlist Manager project by Ayushman Shrestha
+            (P2870837).
+        </p>
+    </footer>
+</body>
+
+</html>
