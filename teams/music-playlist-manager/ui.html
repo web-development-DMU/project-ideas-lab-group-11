@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Interface Plan | Music Playlist Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Music Playlist Manager</h1>
+        <p>User-interface documentation</p>
+
+        <nav aria-label="Project documentation">
+            <a href="index.html">Team home</a>
+            <a href="db.html">Database</a>
+            <a href="ui.html">User interface</a>
+            <a href="../../proposals/music-playlist-manager.html">
+                Project proposal
+            </a>
+            <a href="../index.html">All teams</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="interface-overview"
+            aria-labelledby="interface-overview-heading">
+
+            <h2 id="interface-overview-heading">
+                User-interface overview
+            </h2>
+
+            <p>
+                The application will use simple HTML pages and forms.
+                The design will allow users to find songs, create playlists
+                and manage the songs inside their playlists.
+            </p>
+
+            <p>
+                The first version will use little or no front-end JavaScript.
+                Most actions will be completed using links, buttons and
+                HTML forms.
+            </p>
+        </section>
+
+        <section id="main-pages"
+            aria-labelledby="main-pages-heading">
+
+            <h2 id="main-pages-heading">Main application pages</h2>
+
+            <ul>
+                <li>
+                    <strong>Homepage:</strong> introduces the application
+                    and provides links to its main features.
+                </li>
+
+                <li>
+                    <strong>Song catalogue:</strong> displays all songs and
+                    allows users to view song information.
+                </li>
+
+                <li>
+                    <strong>My playlists:</strong> displays the playlists
+                    created by the current user.
+                </li>
+
+                <li>
+                    <strong>Playlist details:</strong> displays the songs
+                    inside one playlist.
+                </li>
+
+                <li>
+                    <strong>Song form:</strong> allows an administrator to
+                    add or edit song information.
+                </li>
+
+                <li>
+                    <strong>Playlist form:</strong> allows a user to create
+                    or rename a playlist.
+                </li>
+            </ul>
+        </section>
+
+        <section id="user-interactions"
+            aria-labelledby="user-interactions-heading">
+
+            <h2 id="user-interactions-heading">User interactions</h2>
+
+            <div class="table-container">
+                <table>
+                    <caption>
+                        Main user actions and expected results
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">User action</th>
+                            <th scope="col">Interface component</th>
+                            <th scope="col">Result</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>View all songs</td>
+                            <td>Navigation link</td>
+                            <td>The song catalogue page opens.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Create a playlist</td>
+                            <td>HTML form</td>
+                            <td>A new playlist is saved.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Rename a playlist</td>
+                            <td>Edit form</td>
+                            <td>The playlist name is updated.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Add a song to a playlist</td>
+                            <td>Button and form</td>
+                            <td>The song appears in the playlist.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Remove a song</td>
+                            <td>Remove button</td>
+                            <td>The song is removed from the playlist.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Delete a playlist</td>
+                            <td>Delete button</td>
+                            <td>The selected playlist is deleted.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="interface-sketches"
+            aria-labelledby="interface-sketches-heading">
+
+            <h2 id="interface-sketches-heading">
+                User-interface sketches
+            </h2>
+
+            <figure class="wireframe">
+                <figcaption>Song catalogue page</figcaption>
+
+                <div class="wireframe-header">
+                    Music Playlist Manager
+                </div>
+
+                <div class="wireframe-navigation">
+                    Home | Songs | My playlists
+                </div>
+
+                <div class="wireframe-content">
+                    <h3>Song catalogue</h3>
+
+                    <p>Search for a song</p>
+                    <p>[Search box] [Search button]</p>
+
+                    <ul>
+                        <li>Song title - Artist name</li>
+                        <li>Song title - Artist name</li>
+                        <li>Song title - Artist name</li>
+                    </ul>
+                </div>
+            </figure>
+
+            <figure class="wireframe">
+                <figcaption>Playlist details page</figcaption>
+
+                <div class="wireframe-header">
+                    Music Playlist Manager
+                </div>
+
+                <div class="wireframe-navigation">
+                    Home | Songs | My playlists
+                </div>
+
+                <div class="wireframe-content">
+                    <h3>My favourite songs</h3>
+
+                    <p>[Rename playlist] [Delete playlist]</p>
+                    <p>[Add a song]</p>
+
+                    <ul>
+                        <li>Song title - [Remove]</li>
+                        <li>Song title - [Remove]</li>
+                        <li>Song title - [Remove]</li>
+                    </ul>
+                </div>
+            </figure>
+        </section>
+
+        <section id="form-prototype"
+            aria-labelledby="form-prototype-heading">
+
+            <h2 id="form-prototype-heading">
+                Playlist form prototype
+            </h2>
+
+            <form class="prototype-form">
+                <div>
+                    <label for="playlist-name">Playlist name</label>
+                    <input type="text" id="playlist-name"
+                        name="playlist-name">
+                </div>
+
+                <div>
+                    <label for="playlist-description">
+                        Description
+                    </label>
+
+                    <textarea id="playlist-description"
+                        name="playlist-description"
+                        rows="4"></textarea>
+                </div>
+
+                <button type="button">Create playlist</button>
+            </form>
+
+            <p>
+                This is a visual prototype only. It does not save information
+                yet.
+            </p>
+        </section>
+
+        <section id="accessibility"
+            aria-labelledby="accessibility-heading">
+
+            <h2 id="accessibility-heading">
+                Accessibility considerations
+            </h2>
+
+            <ul>
+                <li>Every form input will have a visible label.</li>
+                <li>Pages will use headings in a logical order.</li>
+                <li>Links and buttons will use clear descriptions.</li>
+                <li>The pages will be usable with a keyboard.</li>
+                <li>Text and background colours will have clear contrast.</li>
+                <li>The layout will adjust for smaller screens.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Music Playlist Manager project by Ayushman Shrestha
+            (P2870837).
+        </p>
+    </footer>
+</body>
+
+</html>
