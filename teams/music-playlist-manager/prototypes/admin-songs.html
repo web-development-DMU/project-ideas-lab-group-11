@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Song Administration | Music Playlist Manager Prototype</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Music Playlist Manager</h1>
+        <p>Song administration prototype</p>
+
+        <nav aria-label="Application navigation">
+            <a href="index.html">Home</a>
+            <a href="songs.html">Songs</a>
+            <a href="playlists.html">My playlists</a>
+            <a href="admin-songs.html">Song administration</a>
+            <a href="../routes.html">Route documentation</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="admin-heading">
+            <h2 id="admin-heading">Manage songs</h2>
+
+            <p>
+                Administrators can add new songs or select an existing song
+                to edit or delete.
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <caption>Song administration list</caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Album</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Blinding Lights</td>
+                            <td>The Weeknd</td>
+                            <td>After Hours</td>
+                            <td>
+                                <a href="admin-song.html">
+                                    Edit or delete
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>Shape of You</td>
+                            <td>Ed Sheeran</td>
+                            <td>Divide</td>
+                            <td>
+                                <a href="admin-song.html">
+                                    Edit or delete
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Someone Like You</td>
+                            <td>Adele</td>
+                            <td>21</td>
+                            <td>
+                                <a href="admin-song.html">
+                                    Edit or delete
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section aria-labelledby="create-song-heading">
+            <h2 id="create-song-heading">Add a new song</h2>
+
+            <form class="prototype-form" method="post"
+                action="/admin/songs">
+
+                <div>
+                    <label for="title">Song title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+
+                <div>
+                    <label for="artist">Artist</label>
+                    <input type="text" id="artist" name="artist" required>
+                </div>
+
+                <div>
+                    <label for="album">Album</label>
+                    <input type="text" id="album" name="album">
+                </div>
+
+                <div>
+                    <label for="genre">Genre</label>
+                    <input type="text" id="genre" name="genre">
+                </div>
+
+                <button type="submit">Add song</button>
+            </form>
+
+            <p>
+                This form sends a <code>POST /admin/songs</code> request.
+            </p>
+        </section>
+
+        <section aria-labelledby="route-heading">
+            <h2 id="route-heading">Prototype route</h2>
+
+            <p>
+                This page represents <code>GET /admin/songs</code>.
+            </p>
+
+            <p>
+                It contains the form for creating a song and links to the
+                edit and delete page for each existing song.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Music Playlist Manager prototype by Ayushman Shrestha
+            (P2870837).
+        </p>
+    </footer>
+</body>
+
+</html>

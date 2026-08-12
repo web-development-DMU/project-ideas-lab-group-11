@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Song | Music Playlist Manager Prototype</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Music Playlist Manager</h1>
+        <p>Edit and delete song prototype</p>
+
+        <nav aria-label="Application navigation">
+            <a href="index.html">Home</a>
+            <a href="songs.html">Songs</a>
+            <a href="playlists.html">My playlists</a>
+            <a href="admin-songs.html">Song administration</a>
+            <a href="../routes.html">Route documentation</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="edit-heading">
+            <h2 id="edit-heading">Edit Blinding Lights</h2>
+
+            <form class="prototype-form" method="post"
+                action="/admin/songs/1">
+
+                <div>
+                    <label for="title">Song title</label>
+
+                    <input type="text" id="title" name="title"
+                        value="Blinding Lights" required>
+                </div>
+
+                <div>
+                    <label for="artist">Artist</label>
+
+                    <input type="text" id="artist" name="artist"
+                        value="The Weeknd" required>
+                </div>
+
+                <div>
+                    <label for="album">Album</label>
+
+                    <input type="text" id="album" name="album"
+                        value="After Hours">
+                </div>
+
+                <div>
+                    <label for="genre">Genre</label>
+
+                    <input type="text" id="genre" name="genre"
+                        value="Pop">
+                </div>
+
+                <button type="submit">Save song changes</button>
+            </form>
+
+            <p>
+                This form sends a
+                <code>POST /admin/songs/:songId</code> request.
+            </p>
+        </section>
+
+        <section aria-labelledby="delete-heading">
+            <h2 id="delete-heading">Delete song</h2>
+
+            <p>
+                Deleting this song will also remove it from every playlist.
+                This action will not delete any playlists.
+            </p>
+
+            <form class="prototype-form" method="post"
+                action="/admin/songs/1/delete">
+
+                <button type="submit">Delete song</button>
+            </form>
+
+            <p>
+                This form sends a
+                <code>POST /admin/songs/:songId/delete</code> request.
+            </p>
+        </section>
+
+        <section aria-labelledby="navigation-heading">
+            <h2 id="navigation-heading">Administration navigation</h2>
+
+            <p>
+                <a href="admin-songs.html">
+                    Return to song administration
+                </a>
+            </p>
+
+            <p>
+                <a href="song.html">
+                    View the public song-details prototype
+                </a>
+            </p>
+        </section>
+
+        <section aria-labelledby="route-heading">
+            <h2 id="route-heading">Prototype route</h2>
+
+            <p>
+                This page represents
+                <code>GET /admin/songs/:songId</code>.
+            </p>
+
+            <p>
+                The server will retrieve the selected song and use its
+                information to pre-fill the edit form.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Music Playlist Manager prototype by Ayushman Shrestha
+            (P2870837).
+        </p>
+    </footer>
+</body>
+
+</html>
