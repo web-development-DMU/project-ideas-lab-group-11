@@ -189,10 +189,11 @@
                 <p>
                     <strong>Database side effect:</strong> None.
                 </p>
+<p>
+    <strong>Response:</strong> An HTML homepage with status
+    <code>200 OK</code>.
+</p>
 
-                <p>
-                    <strong>Response:</strong> An HTML homepage.
-                </p>
             </article>
 
             <article class="route">
@@ -217,9 +218,10 @@ ORDER BY title;</code></pre>
                 </p>
 
                 <p>
-                    <strong>Response:</strong> An HTML song catalogue containing
-                    links to individual song pages and a search form.
-                </p>
+    <strong>Response:</strong> An HTML song catalogue with status
+    <code>200 OK</code>. The page contains links to individual song
+    pages and a search form.
+</p>
             </article>
 
             <article class="route">
@@ -252,9 +254,9 @@ ORDER BY title;</code></pre>
                 </p>
 
                 <p>
-                    <strong>Response:</strong> An HTML page containing the
-                    filtered song results.
-                </p>
+    <strong>Response:</strong> An HTML page with status
+    <code>200 OK</code> containing the filtered song results.
+</p>
             </article>
 
             <article class="route">
@@ -280,9 +282,15 @@ WHERE song_id = ?;</code></pre>
                 </p>
 
                 <p>
-                    <strong>Response:</strong> An HTML song-details page. A
-                    not-found page is returned if the song does not exist.
-                </p>
+    <strong>Successful response:</strong> An HTML song-details page
+    with status <code>200 OK</code>.
+</p>
+
+<p>
+    <strong>Error response:</strong> If the song does not exist,
+    the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
             </article>
 
             <article class="route">
@@ -309,10 +317,10 @@ ORDER BY name;</code></pre>
                 </p>
 
                 <p>
-                    <strong>Response:</strong> An HTML page containing the
-                    user's playlists, links to playlist pages and a form for
-                    creating a playlist.
-                </p>
+    <strong>Response:</strong> An HTML page with status
+    <code>200 OK</code>. It contains the user’s playlists, links to
+    individual playlist pages and a form for creating a playlist.
+</p>
             </article>
 
             <article class="route">
@@ -345,9 +353,16 @@ ORDER BY playlist_songs.position;</code></pre>
                 </p>
 
                 <p>
-                    <strong>Response:</strong> An HTML playlist-details page
-                    containing the songs and forms for managing the playlist.
-                </p>
+    <strong>Successful response:</strong> An HTML playlist-details
+    page with status <code>200 OK</code>. It contains the playlist
+    information, its songs and the management forms.
+</p>
+
+<p>
+    <strong>Error response:</strong> If the playlist does not exist,
+    the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
             </article>
 
             <article class="route">
@@ -372,9 +387,10 @@ ORDER BY title;</code></pre>
                 </p>
 
                 <p>
-                    <strong>Response:</strong> An HTML administration page
-                    containing a new-song form and edit links.
-                </p>
+    <strong>Response:</strong> An HTML administration page with
+    status <code>200 OK</code>. It contains the new-song form and
+    links for editing existing songs.
+</p>
             </article>
 
             <article class="route">
@@ -399,10 +415,16 @@ WHERE song_id = ?;</code></pre>
                     <strong>Database side effect:</strong> None.
                 </p>
 
-                <p>
-                    <strong>Response:</strong> An HTML page containing
-                    pre-filled edit and delete forms.
-                </p>
+               <p>
+    <strong>Successful response:</strong> An HTML page with status
+    <code>200 OK</code> containing pre-filled edit and delete forms.
+</p>
+
+<p>
+    <strong>Error response:</strong> If the song does not exist,
+    the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
             </article>
         </section>
 
@@ -416,11 +438,22 @@ WHERE song_id = ?;</code></pre>
                     <strong>Request data:</strong> Playlist name and
                     description from the form, together with the test user ID.
                 </p>
-
+<p>
+    <strong>Server action:</strong> Validates the form and creates
+    a new playlist.
+</p>
                 <p>
-                    <strong>Server action:</strong> Validates the form and
-                    creates a playlist.
-                </p>
+    <strong>Successful response:</strong> The server returns
+    <code>303 See Other</code> with a
+    <code>Location: /playlists</code> header. The browser then sends
+    <code>GET /playlists</code>.
+</p>
+
+<p>
+    <strong>Error response:</strong> If the playlist name is missing
+    or invalid, the server returns the form with error messages and
+    status <code>400 Bad Request</code>.
+</p>
 
                 <p><strong>SQL:</strong></p>
 
@@ -432,19 +465,34 @@ VALUES (?, ?, ?);</code></pre>
                     record is created.
                 </p>
 
-                <p>
-                    <strong>Response:</strong> Redirects the client to
-                    <code>GET /playlists</code>.
-                </p>
+
             </article>
 
             <article class="route">
                 <h3><code>POST /playlists/:playlistId</code></h3>
 
                 <p>
-                    <strong>Request data:</strong> The playlist ID from the URL
-                    and the new name and description from the form.
-                </p>
+    <strong>Request data:</strong> The playlist ID is received as a URL
+    parameter, and the new name and description come from the edit form.
+</p>
+                <p>
+    <strong>Successful response:</strong> The server returns
+    <code>303 See Other</code> with a
+    <code>Location: /playlists/:playlistId</code> header. The browser
+    then sends <code>GET /playlists/:playlistId</code>.
+</p>
+
+<p>
+    <strong>Validation error:</strong> If the submitted name is
+    missing or invalid, the server returns the form with error messages
+    and status <code>400 Bad Request</code>.
+</p>
+
+<p>
+    <strong>Not-found error:</strong> If the playlist does not exist,
+    the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
 
                 <p>
                     <strong>Server action:</strong> Validates the form and
@@ -462,10 +510,7 @@ WHERE playlist_id = ?;</code></pre>
                     is updated.
                 </p>
 
-                <p>
-                    <strong>Response:</strong> Redirects the client to
-                    <code>GET /playlists/:playlistId</code>.
-                </p>
+
             </article>
 
             <article class="route">
@@ -495,10 +540,18 @@ WHERE playlist_id = ?;</code></pre>
                     not deleted.
                 </p>
 
-                <p>
-                    <strong>Response:</strong> Redirects the client to
-                    <code>GET /playlists</code>.
-                </p>
+               <p>
+    <strong>Successful response:</strong> The server returns status
+    <code>303 See Other</code> with
+    <code>Location: /playlists</code>. The browser then requests
+    <code>GET /playlists</code>.
+</p>
+
+<p>
+    <strong>Not-found error:</strong> If the playlist does not exist,
+    the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
             </article>
 
             <article class="route">
@@ -525,10 +578,24 @@ VALUES (?, ?, ?);</code></pre>
                     is created between the playlist and song.
                 </p>
 
-                <p>
-                    <strong>Response:</strong> Redirects the client to
-                    <code>GET /playlists/:playlistId</code>.
-                </p>
+               <p>
+    <strong>Successful response:</strong> The server returns status
+    <code>303 See Other</code> with
+    <code>Location: /playlists/:playlistId</code>. The browser then requests
+    <code>GET /playlists/:playlistId</code>.
+</p>
+
+<p>
+    <strong>Validation error:</strong> If no song is selected,
+    the server returns the form with an error message and status
+    <code>400 Bad Request</code>.
+</p>
+
+<p>
+    <strong>Not-found error:</strong> If the playlist or song does not exist,
+    the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
             </article>
 
             <article class="route">
@@ -559,10 +626,18 @@ AND song_id = ?;</code></pre>
                     relationship is deleted. The song remains in the catalogue.
                 </p>
 
-                <p>
-                    <strong>Response:</strong> Redirects the client to
-                    <code>GET /playlists/:playlistId</code>.
-                </p>
+              <p>
+    <strong>Successful response:</strong> The server returns status
+    <code>303 See Other</code> with
+    <code>Location: /playlists/:playlistId</code>. The browser then requests
+    <code>GET /playlists/:playlistId</code>.
+</p>
+
+<p>
+    <strong>Not-found error:</strong> If the playlist, song or relationship
+    does not exist, the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
             </article>
 
             <article class="route">
@@ -588,10 +663,18 @@ VALUES (?, ?, ?, ?);</code></pre>
                     is created.
                 </p>
 
-                <p>
-                    <strong>Response:</strong> Redirects the client to
-                    <code>GET /admin/songs</code>.
-                </p>
+               <p>
+    <strong>Successful response:</strong> The server returns status
+    <code>303 See Other</code> with
+    <code>Location: /admin/songs</code>. The browser then requests
+    <code>GET /admin/songs</code>.
+</p>
+
+<p>
+    <strong>Validation error:</strong> If required song information is
+    missing or invalid, the server returns the form with error messages
+    and status <code>400 Bad Request</code>.
+</p>
             </article>
 
             <article class="route">
@@ -619,9 +702,23 @@ WHERE song_id = ?;</code></pre>
                 </p>
 
                 <p>
-                    <strong>Response:</strong> Redirects the client to
-                    <code>GET /admin/songs/:songId</code>.
-                </p>
+    <strong>Successful response:</strong> The server returns status
+    <code>303 See Other</code> with
+    <code>Location: /admin/songs/:songId</code>. The browser then requests
+    <code>GET /admin/songs/:songId</code>.
+</p>
+
+<p>
+    <strong>Validation error:</strong> If required song information is
+    missing or invalid, the server returns the form with error messages
+    and status <code>400 Bad Request</code>.
+</p>
+
+<p>
+    <strong>Not-found error:</strong> If the song does not exist,
+    the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
             </article>
 
             <article class="route">
@@ -650,11 +747,20 @@ WHERE song_id = ?;</code></pre>
                     playlist-song relationships are deleted.
                 </p>
 
-                <p>
-                    <strong>Response:</strong> Redirects the client to
-                    <code>GET /admin/songs</code>.
-                </p>
-            </article>
+
+            <p>
+    <strong>Successful response:</strong> The server returns status
+    <code>303 See Other</code> with
+    <code>Location: /admin/songs</code>. The browser then requests
+    <code>GET /admin/songs</code>.
+</p>
+
+<p>
+    <strong>Not-found error:</strong> If the song does not exist,
+    the server returns an HTML error page with status
+    <code>404 Not Found</code>.
+</p>
+</article>
         </section>
 
         <section aria-labelledby="forms-links-heading">
