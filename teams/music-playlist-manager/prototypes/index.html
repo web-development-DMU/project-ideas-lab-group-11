@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | Music Playlist Manager Prototype</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Music Playlist Manager</h1>
+        <p>Application homepage prototype</p>
+
+        <nav aria-label="Application navigation">
+            <a href="index.html">Home</a>
+            <a href="songs.html">Songs</a>
+            <a href="playlists.html">My playlists</a>
+            <a href="admin-songs.html">Song administration</a>
+            <a href="../routes.html">Route documentation</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading">
+                Welcome to Music Playlist Manager
+            </h2>
+
+            <p>
+                This application helps users browse songs and organise them
+                into personal playlists.
+            </p>
+
+            <p>
+                Users can create playlists, rename them and add or remove
+                songs. Administrators can manage the song catalogue.
+            </p>
+        </section>
+
+        <section aria-labelledby="actions-heading">
+            <h2 id="actions-heading">What would you like to do?</h2>
+
+            <ul>
+                <li>
+                    <a href="songs.html">
+                        Browse and search the song catalogue
+                    </a>
+                </li>
+
+                <li>
+                    <a href="playlists.html">
+                        View or create a playlist
+                    </a>
+                </li>
+
+                <li>
+                    <a href="admin-songs.html">
+                        Manage songs as an administrator
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="prototype-heading">
+            <h2 id="prototype-heading">About this prototype</h2>
+
+            <p>
+                This is an HTML prototype of the page returned by
+                <code>GET /</code>. The links demonstrate how users will
+                move through the application.
+            </p>
+
+            <p>
+                The prototype does not connect to the SQLite database yet.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Music Playlist Manager prototype by Ayushman Shrestha
+            (P2870837).
+        </p>
+    </footer>
+</body>
+
+</html>

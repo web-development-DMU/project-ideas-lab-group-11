@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Songs | Music Playlist Manager Prototype</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Music Playlist Manager</h1>
+        <p>Song catalogue prototype</p>
+
+        <nav aria-label="Application navigation">
+            <a href="index.html">Home</a>
+            <a href="songs.html">Songs</a>
+            <a href="playlists.html">My playlists</a>
+            <a href="admin-songs.html">Song administration</a>
+            <a href="../routes.html">Route documentation</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="catalogue-heading">
+            <h2 id="catalogue-heading">Song catalogue</h2>
+
+            <p>
+                Browse all songs or search using a song title or artist name.
+            </p>
+
+            <form class="prototype-form" method="get" action="/songs">
+                <div>
+                    <label for="query">Search for a song</label>
+
+                    <input type="search" id="query" name="query"
+                        placeholder="Enter a title or artist">
+                </div>
+
+                <button type="submit">Search</button>
+            </form>
+
+            <p>
+                The form sends a <code>GET /songs?query=example</code>
+                request.
+            </p>
+        </section>
+
+        <section aria-labelledby="results-heading">
+            <h2 id="results-heading">All songs</h2>
+
+            <div class="table-container">
+                <table>
+                    <caption>Example song catalogue results</caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Album</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Details</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Blinding Lights</td>
+                            <td>The Weeknd</td>
+                            <td>After Hours</td>
+                            <td>Pop</td>
+                            <td>
+                                <a href="song.html">View song</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Shape of You</td>
+                            <td>Ed Sheeran</td>
+                            <td>Divide</td>
+                            <td>Pop</td>
+                            <td>
+                                <a href="song.html">View song</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Someone Like You</td>
+                            <td>Adele</td>
+                            <td>21</td>
+                            <td>Pop</td>
+                            <td>
+                                <a href="song.html">View song</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Believer</td>
+                            <td>Imagine Dragons</td>
+                            <td>Evolve</td>
+                            <td>Rock</td>
+                            <td>
+                                <a href="song.html">View song</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section aria-labelledby="route-heading">
+            <h2 id="route-heading">Prototype route</h2>
+
+            <p>
+                This page represents <code>GET /songs</code>. The same page
+                will display filtered results when it receives a
+                <code>query</code> value.
+            </p>
+
+            <p>
+                The song information is example content. It will eventually
+                be retrieved from the SQLite database.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Music Playlist Manager prototype by Ayushman Shrestha
+            (P2870837).
+        </p>
+    </footer>
+</body>
+
+</html>

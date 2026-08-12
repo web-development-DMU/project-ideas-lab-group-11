@@ -180,6 +180,31 @@ footer {
     text-align: center;
     background-color: #dfe8ec;
 }
+.route {
+    margin-block: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #c8d3d8;
+}
+
+.prototype-form select {
+    width: 100%;
+    padding: 0.6rem;
+    font: inherit;
+    background-color: white;
+    border: 1px solid #555;
+}
+
+select:focus-visible {
+    outline: 3px solid #ffbf47;
+    outline-offset: 3px;
+}
+
+.prototype-frame {
+    width: 100%;
+    min-height: 600px;
+    border: 2px solid #555;
+    background-color: white;
+}
 
 @media (max-width: 600px) {
     header,

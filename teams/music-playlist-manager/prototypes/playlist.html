@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Playlist Details | Music Playlist Manager Prototype</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Music Playlist Manager</h1>
+        <p>Individual playlist prototype</p>
+
+        <nav aria-label="Application navigation">
+            <a href="index.html">Home</a>
+            <a href="songs.html">Songs</a>
+            <a href="playlists.html">My playlists</a>
+            <a href="admin-songs.html">Song administration</a>
+            <a href="../routes.html">Route documentation</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="playlist-heading">
+            <h2 id="playlist-heading">My favourite songs</h2>
+
+            <p>
+                Songs that I listen to regularly.
+            </p>
+
+            <p>
+                <a href="playlists.html">Return to my playlists</a>
+            </p>
+        </section>
+
+        <section aria-labelledby="songs-heading">
+            <h2 id="songs-heading">Songs in this playlist</h2>
+
+            <div class="table-container">
+                <table>
+                    <caption>Example playlist songs</caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Position</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Blinding Lights</td>
+                            <td>The Weeknd</td>
+                            <td>
+                                <form class="prototype-form" method="post"
+                                    action="/playlists/1/songs/1/delete">
+
+                                    <button type="submit">
+                                        Remove
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>Shape of You</td>
+                            <td>Ed Sheeran</td>
+                            <td>
+                                <form class="prototype-form" method="post"
+                                    action="/playlists/1/songs/2/delete">
+
+                                    <button type="submit">
+                                        Remove
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Someone Like You</td>
+                            <td>Adele</td>
+                            <td>
+                                <form class="prototype-form" method="post"
+                                    action="/playlists/1/songs/3/delete">
+
+                                    <button type="submit">
+                                        Remove
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section aria-labelledby="add-song-heading">
+            <h2 id="add-song-heading">Add a song</h2>
+
+            <form class="prototype-form" method="post"
+                action="/playlists/1/songs">
+
+                <div>
+                    <label for="song-id">Select a song</label>
+
+                    <select id="song-id" name="song_id" required>
+                        <option value="">Choose a song</option>
+                        <option value="1">Blinding Lights - The Weeknd</option>
+                        <option value="2">Shape of You - Ed Sheeran</option>
+                        <option value="3">Someone Like You - Adele</option>
+                        <option value="4">Believer - Imagine Dragons</option>
+                    </select>
+                </div>
+
+                <button type="submit">Add song</button>
+            </form>
+
+            <p>
+                This form sends a
+                <code>POST /playlists/:playlistId/songs</code> request.
+            </p>
+        </section>
+
+        <section aria-labelledby="rename-heading">
+            <h2 id="rename-heading">Edit playlist</h2>
+
+            <form class="prototype-form" method="post"
+                action="/playlists/1">
+
+                <div>
+                    <label for="playlist-name">Playlist name</label>
+
+                    <input type="text" id="playlist-name" name="name"
+                        value="My favourite songs" required>
+                </div>
+
+                <div>
+                    <label for="playlist-description">Description</label>
+
+                    <textarea id="playlist-description" name="description"
+                        rows="4">Songs that I listen to regularly.</textarea>
+                </div>
+
+                <button type="submit">Save changes</button>
+            </form>
+
+            <p>
+                This form sends a
+                <code>POST /playlists/:playlistId</code> request.
+            </p>
+        </section>
+
+        <section aria-labelledby="delete-heading">
+            <h2 id="delete-heading">Delete playlist</h2>
+
+            <p>
+                Deleting the playlist will remove its playlist-song
+                relationships. It will not delete songs from the catalogue.
+            </p>
+
+            <form class="prototype-form" method="post"
+                action="/playlists/1/delete">
+
+                <button type="submit">Delete playlist</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="route-heading">
+            <h2 id="route-heading">Prototype route</h2>
+
+            <p>
+                This page represents
+                <code>GET /playlists/:playlistId</code>.
+            </p>
+
+            <p>
+                It contains the forms needed to update or delete the playlist
+                and add or remove songs.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Music Playlist Manager prototype by Ayushman Shrestha
+            (P2870837).
+        </p>
+    </footer>
+</body>
+
+</html>

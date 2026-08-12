@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Playlists | Music Playlist Manager Prototype</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Music Playlist Manager</h1>
+        <p>Playlist list prototype</p>
+
+        <nav aria-label="Application navigation">
+            <a href="index.html">Home</a>
+            <a href="songs.html">Songs</a>
+            <a href="playlists.html">My playlists</a>
+            <a href="admin-songs.html">Song administration</a>
+            <a href="../routes.html">Route documentation</a>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="playlists-heading">
+            <h2 id="playlists-heading">My playlists</h2>
+
+            <p>
+                Select a playlist to view its songs or create a new playlist.
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <caption>Example playlists</caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Playlist name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Number of songs</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>My favourite songs</td>
+                            <td>Songs that I listen to regularly.</td>
+                            <td>4</td>
+                            <td>
+                                <a href="playlist.html">View playlist</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Study music</td>
+                            <td>Music for studying and completing coursework.</td>
+                            <td>3</td>
+                            <td>
+                                <a href="playlist.html">View playlist</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section aria-labelledby="create-heading">
+            <h2 id="create-heading">Create a new playlist</h2>
+
+            <form class="prototype-form" method="post"
+                action="/playlists">
+
+                <div>
+                    <label for="playlist-name">Playlist name</label>
+
+                    <input type="text" id="playlist-name" name="name"
+                        required>
+                </div>
+
+                <div>
+                    <label for="playlist-description">Description</label>
+
+                    <textarea id="playlist-description" name="description"
+                        rows="4"></textarea>
+                </div>
+
+                <button type="submit">Create playlist</button>
+            </form>
+
+            <p>
+                This form will send a <code>POST /playlists</code> request.
+            </p>
+        </section>
+
+        <section aria-labelledby="route-heading">
+            <h2 id="route-heading">Prototype route</h2>
+
+            <p>
+                This page represents <code>GET /playlists</code>.
+            </p>
+
+            <p>
+                The server will retrieve playlists belonging to the current
+                test user and display them with the playlist creation form.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Music Playlist Manager prototype by Ayushman Shrestha
+            (P2870837).
+        </p>
+    </footer>
+</body>
+
+</html>
